@@ -19,19 +19,19 @@ public class PriceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long id;
+    private long id;
     @Column(name = "brand_id")
-    private Integer brandId;
+    private int brandId;
     @Column(name = "start_date")
     private LocalDateTime startDate;
     @Column(name = "end_date")
     private LocalDateTime endDate;
     @Column(name = "product_id")
-    private Integer productId;
+    private int productId;
     @Column(name = "priority")
-    private Integer priority;
+    private int priority;
     @Column(name = "price")
-    private Float price;
+    private float price;
     @Column(name = "curr")
     private String curr;
 

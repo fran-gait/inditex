@@ -21,9 +21,9 @@ public class PriceRepositoryMapper {
                     Price.builder()
                             .id(priceEntity.getId())
                             .brandId(priceEntity.getBrandId())
+                            .productId(priceEntity.getProductId())
                             .startDate(priceEntity.getStartDate())
                             .endDate(priceEntity.getEndDate())
-                            .productId(priceEntity.getProductId())
                             .priority(priceEntity.getPriority())
                             .price(priceEntity.getPrice())
                             .curr(priceEntity.getCurr()).build());

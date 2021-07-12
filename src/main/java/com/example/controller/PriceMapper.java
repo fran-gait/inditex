@@ -12,11 +12,11 @@ public class PriceMapper {
     public PriceResponse convertDomainToResponse(Price price) {
         return Optional.ofNullable(price)
                 .map(domain -> PriceResponse.builder()
+                        .id(domain.getId())
                         .brandId(domain.getBrandId())
+                        .productId(domain.getProductId())
                         .startDate(domain.getStartDate())
                         .endDate(domain.getEndDate())
-                        .productId(domain.getProductId())
-                        .priority(domain.getPriority())
                         .price(domain.getPrice())
                         .build())
                 .orElse(null);

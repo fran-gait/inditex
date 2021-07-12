@@ -14,14 +14,14 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class PriceResponse {
 
+    private long id;
     @JsonProperty("brand_id")
-    private Integer brandId;
+    private int brandId;
     @JsonProperty("start_date")
     private LocalDateTime startDate;
     @JsonProperty("end_date")
     private LocalDateTime endDate;
     @JsonProperty("product_id")
-    private Integer productId;
-    private Integer priority;
-    private Float price;
+    private int productId;
+    private float price;
 }

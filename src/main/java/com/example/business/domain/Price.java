@@ -13,12 +13,12 @@ import java.time.LocalDateTime;
 @Data
 public class Price {
 
-    private Long id;
-    private Integer brandId;
+    private long id;
+    private int brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Integer productId;
-    private Integer priority;
-    private Float price;
+    private int productId;
+    private int priority;
+    private float price;
     private String curr;
 }

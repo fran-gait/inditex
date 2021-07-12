@@ -31,7 +31,8 @@ public class PriceServiceImpl implements PriceService {
                         localDateTime.isBefore(price.getEndDate()))
                 .sorted(Comparator.comparingInt(Price::getPriority).reversed())
                 .findFirst()
-                .orElseThrow(() -> new ResourceNotFound(format("Dont find price with productId %s and brandId %s", productId, brandId)));
+                .orElseThrow(() -> new ResourceNotFound(
+                        format("Dont find price with productId %s and brandId %s", productId, brandId)));
 
     }
 }
