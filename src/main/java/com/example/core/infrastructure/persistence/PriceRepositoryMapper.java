@@ -1,7 +1,7 @@
-package com.example.repository;
+package com.example.core.infrastructure.persistence;
 
-import com.example.business.domain.Price;
-import com.example.repository.entity.PriceEntity;
+import com.example.core.domain.Price;
+import com.example.core.infrastructure.persistence.PriceEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

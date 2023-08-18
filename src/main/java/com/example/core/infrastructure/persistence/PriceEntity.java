@@ -1,4 +1,4 @@
-package com.example.repository.entity;
+package com.example.core.infrastructure.persistence;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

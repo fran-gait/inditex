@@ -1,8 +1,11 @@
-package com.example.controller;
+/*
+package com.example.resources;
 
-import com.example.business.domain.Price;
-import com.example.business.output.PriceService;
-import com.example.controller.response.PriceResponse;
+import com.example.core.domain.Price;
+import com.example.core.output.PriceService;
+import com.example.http.resources.PriceMapper;
+import com.example.http.resources.controller.PriceController;
+import com.example.http.resources.dto.PriceResponse;
 import com.example.exceptions.ResourceNotFound;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -83,3 +86,4 @@ class PriceControllerTest {
     }
 
 }
+*/

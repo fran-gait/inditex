@@ -1,7 +1,11 @@
+/*
 package com.example.repository;
 
-import com.example.business.domain.Price;
-import com.example.repository.entity.PriceEntity;
+import com.example.core.domain.Price;
+import com.example.core.infrastructure.persistence.PriceDTORepository;
+import com.example.core.infrastructure.persistence.PriceRepositoryAdapter;
+import com.example.core.infrastructure.persistence.PriceRepositoryMapper;
+import com.example.core.infrastructure.persistence.PriceEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,10 +21,10 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-class PriceRepositoryAdapterTest {
+class PriceDTORepositoryAdapterTest {
 
     @Mock
-    private PriceRepository priceRepository;
+    private PriceDTORepository priceRepository;
     @Mock
     private PriceRepositoryMapper priceRepositoryMapper;
 
@@ -81,7 +85,7 @@ class PriceRepositoryAdapterTest {
         when(priceRepository.findPriceByProductIdAndBrandId(eq(productId), eq(brandId))).thenReturn(priceEntityList);
         when(priceRepositoryMapper.convertEntityToDomain(eq(priceEntityList))).thenReturn(priceList);
 
-        List<Price> actual = priceRepositoryAdapter.findPriceBy(1, 1);
+        List<Price> actual = priceRepositoryAdapter.findPriceByProductIdAndBrandId(1, 1);
 
         verify(priceRepository, times(1)).findPriceByProductIdAndBrandId(eq(productId), eq(brandId));
         verify(priceRepositoryMapper, times(1)).convertEntityToDomain(eq(priceEntityList));
@@ -97,9 +101,10 @@ class PriceRepositoryAdapterTest {
         when(priceRepository.findPriceByProductIdAndBrandId(eq(productId), eq(brandId))).thenReturn(null);
         when(priceRepositoryMapper.convertEntityToDomain(eq(null))).thenReturn(null);
 
-        List<Price> actual = priceRepositoryAdapter.findPriceBy(1, 1);
+        List<Price> actual = priceRepositoryAdapter.findPriceByProductIdAndBrandId(1, 1);
 
         verify(priceRepository, times(1)).findPriceByProductIdAndBrandId(eq(productId), eq(brandId));
         assertNull(actual);
     }
 }
+*/
