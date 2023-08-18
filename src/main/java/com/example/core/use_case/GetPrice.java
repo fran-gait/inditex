@@ -42,11 +42,11 @@ public class GetPrice {
 
     private Response generatePriceResponse(Price price) {
         return new Response(
-                price.getId(),
                 price.getBrandId(),
+                price.getProductId(),
+                price.getPriceList(),
                 price.getStartDate(),
                 price.getEndDate(),
-                price.getProductId(),
                 price.getPrice()
         );
     }
@@ -62,11 +62,11 @@ public class GetPrice {
     @Getter
     @AllArgsConstructor
     public static class Response {
-        private long id;
         private int brandId;
+        private int productId;
+        private int priceList;
         private LocalDateTime startDate;
         private LocalDateTime endDate;
-        private int productId;
         private float price;
     }
 }

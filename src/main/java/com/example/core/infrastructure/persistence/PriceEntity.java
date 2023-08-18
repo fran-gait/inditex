@@ -26,6 +26,8 @@ public class PriceEntity {
     private LocalDateTime startDate;
     @Column(name = "end_date")
     private LocalDateTime endDate;
+    @Column(name = "price_list")
+    private int priceList;
     @Column(name = "product_id")
     private int productId;
     @Column(name = "priority")
