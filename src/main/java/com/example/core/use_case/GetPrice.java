@@ -31,10 +31,10 @@ public class GetPrice {
 
     private Price getMaxPriceByPriority(Request request, List<Price> priceList) {
         return priceList.stream()
-                .filter(price -> request.getLocalDateTime().isAfter(price.getStartDate()) &&
-                                 request.getLocalDateTime().isBefore(price.getEndDate()))
+                .filter(price -> price.getStartDate().isBefore(request.getLocalDateTime())
+                        && price.getEndDate().isAfter(request.getLocalDateTime()))
                 .max(Comparator.comparingInt(Price::getPriority))
-                .orElseThrow(() -> new ResourceNotFound(format("Dont find price with productId %s and brandId %s",
+                .orElseThrow(() -> new ResourceNotFound(format("Don't find price with productId %s and brandId %s",
                         request.getProductId(),
                         request.getBrandId()))
                 );
