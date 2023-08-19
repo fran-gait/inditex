@@ -2,7 +2,7 @@ package com.example.core.use_case;
 
 import com.example.core.domain.Price;
 import com.example.core.domain.PriceRepository;
-import com.example.exceptions.ResourceNotFound;
+import com.example.exception.ResourceNotFound;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
