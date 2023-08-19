@@ -1,7 +1,5 @@
-package com.example.repository.entity;
+package com.example.core.infrastructure.persistence;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,9 +8,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "prices")
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 public class PriceEntity {
 
@@ -26,6 +22,8 @@ public class PriceEntity {
     private LocalDateTime startDate;
     @Column(name = "end_date")
     private LocalDateTime endDate;
+    @Column(name = "price_list")
+    private int priceList;
     @Column(name = "product_id")
     private int productId;
     @Column(name = "priority")
