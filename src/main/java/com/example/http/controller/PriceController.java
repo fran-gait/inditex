@@ -25,12 +25,12 @@ public class PriceController {
 
     @GetMapping
     public ResponseEntity<PriceResponse> getPrice(
-            @RequestParam("dateTime")
-            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateTime,
+            @RequestParam("currentTime")
+            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime currentTime,
             @RequestParam("productId") int productId,
             @RequestParam("brandId") int brandId
     ) {
-        Request request = new Request(dateTime, productId, brandId);
+        Request request = new Request(currentTime, productId, brandId);
         Response response = provider.getPrice().execute(request);
 
         return ResponseEntity.ok(new PriceResponse(response));

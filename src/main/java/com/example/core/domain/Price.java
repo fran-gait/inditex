@@ -17,5 +17,9 @@ public class Price {
     private int productId;
     private int priority;
     private float price;
-    private String curr;
+    private String currency;
+
+    public boolean isPriceBetweenDate(LocalDateTime dateTime) {
+        return startDate.isBefore(dateTime) && endDate.isAfter(dateTime);
+    }
 }

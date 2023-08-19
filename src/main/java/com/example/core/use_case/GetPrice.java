@@ -2,15 +2,13 @@ package com.example.core.use_case;
 
 import com.example.core.domain.Price;
 import com.example.core.domain.PriceRepository;
-import com.example.exception.ResourceNotFound;
+import com.example.exception.PriceNotFound;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
-
-import static java.lang.String.format;
 
 public class GetPrice {
     PriceRepository priceRepository;
@@ -31,13 +29,9 @@ public class GetPrice {
 
     private Price getMaxPriceByPriority(Request request, List<Price> priceList) {
         return priceList.stream()
-                .filter(price -> price.getStartDate().isBefore(request.getLocalDateTime())
-                        && price.getEndDate().isAfter(request.getLocalDateTime()))
+                .filter(price -> price.isPriceBetweenDate(request.getCurrentTime()))
                 .max(Comparator.comparingInt(Price::getPriority))
-                .orElseThrow(() -> new ResourceNotFound(format("Don't find price with productId %s and brandId %s",
-                        request.getProductId(),
-                        request.getBrandId()))
-                );
+                .orElseThrow(() -> new PriceNotFound(request.getProductId(), request.getBrandId()));
     }
 
     private Response generatePriceResponse(Price price) {
@@ -54,7 +48,7 @@ public class GetPrice {
     @Getter
     @AllArgsConstructor
     public static class Request {
-        private LocalDateTime localDateTime;
+        private LocalDateTime currentTime;
         private int productId;
         private int brandId;
     }

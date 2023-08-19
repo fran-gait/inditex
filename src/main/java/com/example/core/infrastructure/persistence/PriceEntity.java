@@ -32,5 +32,4 @@ public class PriceEntity {
     private float price;
     @Column(name = "curr")
     private String curr;
-
 }
