@@ -12,7 +12,6 @@ public class PriceRepositoryMapper {
     public List<Price> convertEntityToDomain(List<PriceEntity> priceEntityList) {
         return priceEntityList.stream()
                 .map(priceEntity -> Price.builder()
-                        .id(priceEntity.getId())
                         .brandId(priceEntity.getBrandId())
                         .productId(priceEntity.getProductId())
                         .priceList(priceEntity.getPriceList())

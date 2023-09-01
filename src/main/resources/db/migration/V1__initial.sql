@@ -6,6 +6,9 @@ CREATE TABLE brand
     name VARCHAR(255) NOT NULL
 );
 
+INSERT INTO brand (name)
+VALUES ('Zara'), ('H&M');
+
 DROP TABLE IF EXISTS prices;
 
 CREATE TABLE prices
@@ -18,16 +21,11 @@ CREATE TABLE prices
     product_id INT,
     priority   INT,
     price      DECIMAL(10, 2),
-    curr       VARCHAR(3)
+    curr       VARCHAR(3),
+    FOREIGN KEY (brand_id) REFERENCES brand (id)
 );
 
-ALTER TABLE prices
-    ADD FOREIGN KEY (brand_id)
-        REFERENCES brand (id);
-
-INSERT INTO brand (name)
-VALUES ('Zara'),
-       ('H&M');
+CREATE INDEX idx_brand_product ON prices (brand_id, product_id);
 
 INSERT INTO prices (brand_id, start_date, end_date, product_id, price_list, priority, price, curr)
 VALUES (1, '2020-06-14 00.00.00', '2020-12-31 23.59.59', 35455, 1, 0, 35.50, 'EUR'),

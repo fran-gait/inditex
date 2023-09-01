@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @Data
 public class Price {
 
-    private long id;
     private int brandId;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
@@ -18,8 +17,4 @@ public class Price {
     private int priority;
     private float price;
     private String currency;
-
-    public boolean isPriceBetweenDate(LocalDateTime dateTime) {
-        return startDate.isBefore(dateTime) && endDate.isAfter(dateTime);
-    }
 }

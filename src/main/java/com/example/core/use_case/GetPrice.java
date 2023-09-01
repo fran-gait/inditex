@@ -18,9 +18,10 @@ public class GetPrice {
     }
 
     public Response execute(Request request) {
-        List<Price> priceList = priceRepository.findPriceByProductIdAndBrandId(
+        List<Price> priceList = priceRepository.findPricesByProductIdAndBrandIdAndCurrentTime(
                 request.getProductId(),
-                request.getBrandId()
+                request.getBrandId(),
+                request.getCurrentTime()
         );
 
         Price maxPriceByPriority = getMaxPriceByPriority(request, priceList);
@@ -29,7 +30,6 @@ public class GetPrice {
 
     private Price getMaxPriceByPriority(Request request, List<Price> priceList) {
         return priceList.stream()
-                .filter(price -> price.isPriceBetweenDate(request.getCurrentTime()))
                 .max(Comparator.comparingInt(Price::getPriority))
                 .orElseThrow(() -> new PriceNotFound(request.getProductId(), request.getBrandId()));
     }

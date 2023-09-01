@@ -4,6 +4,7 @@ import com.example.core.domain.Price;
 import com.example.core.domain.PriceRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository("priceRepository")
@@ -21,9 +22,17 @@ public class PriceRepositoryAdapter implements PriceRepository {
     }
 
     @Override
-    public List<Price> findPriceByProductIdAndBrandId(int productId, int brandId) {
+    public List<Price> findPricesByProductIdAndBrandIdAndCurrentTime(
+            int productId,
+            int brandId,
+            LocalDateTime currentTime
+    ) {
         return priceRepositoryMapper.convertEntityToDomain(
-                priceRepository.findPriceByProductIdAndBrandId(productId, brandId)
+                priceRepository.findPricesByProductIdAndBrandIdAndCurrentTime(
+                        productId,
+                        brandId,
+                        currentTime
+                )
         );
     }
 }
